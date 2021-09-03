@@ -62,7 +62,7 @@ export const success = {
   700: '#27C454',
   800: '#20BE4A',
   900: '#0b7724',
-  main: 'rgb(51, 208, 103)',
+  main: 'rgb(3, 71, 32)',
 }
 
 export const warning = {

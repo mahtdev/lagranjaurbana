@@ -93,7 +93,7 @@ const Header: React.FC<HeaderProps> = ({ isFixed, className }) => {
         >
           <Link href="/">
             <a>
-              <Image height={'70px'} mb={0.5} src="/assets/images/lagranjalogo.png" alt="logo" />
+              <Image height={'70px'} mb={0.5} src="/assets/images/logos/lagranja.svg" alt="logo" />
             </a>
           </Link>
 

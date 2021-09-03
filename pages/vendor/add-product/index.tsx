@@ -2,45 +2,70 @@ import DropZone from '@component/DropZone'
 import DeliveryBox from '@component/icons/DeliveryBox'
 import DashboardPageHeader from '@component/layout/DashboardPageHeader'
 import VendorDashboardLayout from '@component/layout/VendorDashboardLayout'
-import { Button, Card, Grid, MenuItem, TextField } from '@material-ui/core'
+import { Button, Grid, MenuItem, TextField } from '@material-ui/core'
 import { Formik } from 'formik'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 import * as yup from 'yup'
+import SaveIcon from '@material-ui/icons/Save'
+import categories from '@data/categories'
+import units from '@data/units'
+import Card from '@material-ui/core/Card'
 
 const OrderDetails = () => {
+  const [subCategoryDisabled, setSubCategoryDisabled] = useState(true)
+  const [categorySelected, setCategorySelected] = useState('0')
+  const [subCategorySelected, setSubCategorySelected] = useState('0')
+
   const handleFormSubmit = async (values: any) => {
     console.log(values)
+  }
+
+  const subCategoryDisabledState = {
+    disabled: subCategoryDisabled,
+  }
+
+  function returnSubCategories(id: number) {
+    if (!isNaN(id)) {
+      const data = categories.find(value => value.id == id)
+      if (data != null) {
+        return (data.subcategory.map(value => {
+          return (<MenuItem value={value.id}>{value.name}</MenuItem>)
+        }))
+      }
+    }
+    return (<MenuItem value='1'>No hay información</MenuItem>)
   }
 
   return (
     <VendorDashboardLayout>
       <DashboardPageHeader
-        title="Add Product"
+        title='Nuevo producto'
         icon={DeliveryBox}
         button={
-          <Link href="/vendor/products">
-            <Button color="primary" sx={{ bgcolor: 'primary.light', px: '2rem' }}>
-              Back to Product List
+          <Link href='/vendor/products'>
+            <Button color='info' sx={{ bgcolor: 'gray.500', px: '2rem' }}>
+              Regresar a la lista de productos
             </Button>
           </Link>
         }
       />
 
-      <Card sx={{ p: '30px' }}>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={checkoutSchema}
-          onSubmit={handleFormSubmit}
-        >
-          {({ values, errors, touched, handleChange, handleBlur, handleSubmit }) => (
-            <form onSubmit={handleSubmit}>
+      {/*<Card sx={{ p: '30px' }}>*/}
+      <Formik
+        initialValues={initialValues}
+        validationSchema={checkoutSchema}
+        onSubmit={handleFormSubmit}
+      >
+        {({ values, errors, touched, handleChange, handleBlur, handleSubmit }) => (
+          <form onSubmit={handleSubmit}>
+            <Card sx={{ p: '30px' }} variant='outlined'>
               <Grid container spacing={3}>
-                <Grid item sm={6} xs={12}>
+                <Grid item sm={4} xs={12}>
                   <TextField
-                    name="name"
-                    label="Name"
-                    placeholder="Name"
+                    name='name'
+                    label='Nombre'
+                    placeholder='Nombre'
                     fullWidth
                     onBlur={handleBlur}
                     onChange={handleChange}
@@ -49,21 +74,41 @@ const OrderDetails = () => {
                     helperText={touched.name && errors.name}
                   />
                 </Grid>
-                <Grid item sm={6} xs={12}>
+                <Grid item sm={4} xs={12}>
                   <TextField
-                    name="category"
-                    label="Select Category"
-                    placeholder="Category"
+                    name='category'
+                    label='Seleccionar Categoria'
+                    placeholder='Categoria'
                     fullWidth
                     select
                     onBlur={handleBlur}
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      handleChange(e)
+                      setCategorySelected(e.target.value)
+                      setSubCategoryDisabled(false)
+                    }}
                     value={values.category || ''}
                     error={!!touched.category && !!errors.category}
                     helperText={touched.category && errors.category}
                   >
-                    <MenuItem value="electronics">Electronics</MenuItem>
-                    <MenuItem value="fashion">Fashion</MenuItem>
+                    {categories.map(category => <MenuItem value={category.id}>{category.name}</MenuItem>)}
+                  </TextField>
+                </Grid>
+                <Grid item sm={4} xs={12}>
+                  <TextField
+                    name='subcategory'
+                    label='Seleccionar Subcategoria'
+                    placeholder='Subcategoria'
+                    fullWidth
+                    select
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    value={values.subcategory || ''}
+                    error={!!touched.subcategory && !!errors.subcategory}
+                    helperText={touched.subcategory && errors.subcategory}
+                    inputProps={subCategoryDisabledState}
+                  >
+                    {categorySelected && returnSubCategories(parseInt(categorySelected))}
                   </TextField>
                 </Grid>
                 <Grid item xs={12}>
@@ -75,9 +120,9 @@ const OrderDetails = () => {
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
-                    name="description"
-                    label="Description"
-                    placeholder="Description"
+                    name='description'
+                    label='Descripción'
+                    placeholder='Descripción'
                     rows={6}
                     multiline
                     fullWidth
@@ -88,11 +133,16 @@ const OrderDetails = () => {
                     helperText={touched.description && errors.description}
                   />
                 </Grid>
-                <Grid item sm={6} xs={12}>
+              </Grid>
+            </Card>
+            <Card sx={{ p: '30px', marginTop: '10px' }} variant='outlined'>
+              <h3>Inventario</h3>
+              <Grid container spacing={3}>
+                <Grid item sm={4} xs={12}>
                   <TextField
-                    name="stock"
-                    label="Stock"
-                    placeholder="Stock"
+                    name='stock'
+                    label='Cantidad'
+                    placeholder='Cantidad'
                     fullWidth
                     onBlur={handleBlur}
                     onChange={handleChange}
@@ -101,11 +151,94 @@ const OrderDetails = () => {
                     helperText={touched.stock && errors.stock}
                   />
                 </Grid>
+                <Grid item sm={4} xs={12}>
+                  <TextField
+                    name='unit'
+                    label='Seleccionar Unidad'
+                    placeholder='Unidad'
+                    fullWidth
+                    select
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    value={values.unit || ''}
+                    error={!!touched.unit && !!errors.unit}
+                    helperText={touched.unit && errors.unit}
+                  >
+                    {units.map(value => <MenuItem value={value.id}>{value.name}</MenuItem>)}
+                  </TextField>
+                </Grid>
+                <Grid item sm={4} xs={12}>
+                  <TextField
+                    name='price'
+                    label='Precio de compra'
+                    placeholder='Precio de compra'
+                    type='number'
+                    fullWidth
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    value={values.price || ''}
+                    error={!!touched.price && !!errors.price}
+                    helperText={touched.price && errors.price}
+                  />
+                </Grid>
+              </Grid>
+            </Card>
+            <Card sx={{ p: '30px', marginTop: '10px' }} variant='outlined'>
+              <h3>Venta al publico</h3>
+              <Grid container spacing={3}>
+                <Grid item sm={4} xs={12}>
+                  <TextField
+                    name='stock'
+                    label='Cantidad'
+                    placeholder='Cantidad'
+                    fullWidth
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    value={values.stock || ''}
+                    error={!!touched.stock && !!errors.stock}
+                    helperText={touched.stock && errors.stock}
+                  />
+                </Grid>
+                <Grid item sm={4} xs={12}>
+                  <TextField
+                    name='unit'
+                    label='Seleccionar Unidad'
+                    placeholder='Unidad'
+                    fullWidth
+                    select
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    value={values.unit || ''}
+                    error={!!touched.unit && !!errors.unit}
+                    helperText={touched.unit && errors.unit}
+                  >
+                    {units.map(value => <MenuItem value={value.id}>{value.name}</MenuItem>)}
+                  </TextField>
+                </Grid>
+                <Grid item sm={4} xs={12}>
+                  <TextField
+                    name='sale_price'
+                    label='Precio de venta'
+                    placeholder='Precio de venta'
+                    type='number'
+                    fullWidth
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    value={values.sale_price || ''}
+                    error={!!touched.sale_price && !!errors.sale_price}
+                    helperText={touched.sale_price && errors.sale_price}
+                  />
+                </Grid>
+              </Grid>
+            </Card>
+            <Card sx={{ p: '30px', marginTop: '10px' }} variant='outlined'>
+              <h3>Otros</h3>
+              <Grid container spacing={3}>
                 <Grid item sm={6} xs={12}>
                   <TextField
-                    name="tags"
-                    label="Tags"
-                    placeholder="Tags"
+                    name='tags'
+                    label='Tags'
+                    placeholder='Tags'
                     fullWidth
                     onBlur={handleBlur}
                     onChange={handleChange}
@@ -116,45 +249,33 @@ const OrderDetails = () => {
                 </Grid>
                 <Grid item sm={6} xs={12}>
                   <TextField
-                    name="price"
-                    label="Regular Price"
-                    placeholder="Regular Price"
-                    type="number"
+                    name='code'
+                    label='Codigo de barras'
+                    placeholder='Codigo de barras'
+                    disabled={true}
                     fullWidth
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    value={values.price || ''}
-                    error={!!touched.price && !!errors.price}
-                    helperText={touched.price && errors.price}
-                  />
-                </Grid>
-                <Grid item sm={6} xs={12}>
-                  <TextField
-                    name="sale_price"
-                    label="Sale Price"
-                    placeholder="Sale Price"
-                    type="number"
-                    fullWidth
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    value={values.sale_price || ''}
-                    error={!!touched.sale_price && !!errors.sale_price}
-                    helperText={touched.sale_price && errors.sale_price}
+                    value={values.code || ''}
+                    error={!!touched.code && !!errors.code}
+                    helperText={touched.code && errors.code}
                   />
                 </Grid>
               </Grid>
-              <Button
-                variant="contained"
-                color="primary"
-                type="submit"
-                sx={{ mt: '25px' }}
-              >
-                Save product
-              </Button>
-            </form>
-          )}
-        </Formik>
-      </Card>
+            </Card>
+            <Button
+              variant='outlined'
+              color='info'
+              type='submit'
+              sx={{ mt: '25px' }}
+              startIcon={<SaveIcon />}
+            >
+              Guardar producto
+            </Button>
+          </form>
+        )}
+      </Formik>
+      {/*</Card>*/}
     </VendorDashboardLayout>
   )
 }
@@ -167,6 +288,9 @@ const initialValues = {
   description: '',
   tags: '',
   category: '',
+  subcategory: '',
+  unit: '',
+  code: '',
 }
 
 const checkoutSchema = yup.object().shape({
@@ -176,7 +300,8 @@ const checkoutSchema = yup.object().shape({
   stock: yup.number().required('required'),
   price: yup.number().required('required'),
   sale_price: yup.number().required('required'),
-  tags: yup.object().required('required'),
+  tags: yup.string().required('required'),
+  unit: yup.string().required('required'),
 })
 
 export default OrderDetails

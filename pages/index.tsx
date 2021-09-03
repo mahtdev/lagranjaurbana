@@ -12,13 +12,21 @@ import Categories from '@component/home-1/Categories'
 // import Section8 from '@component/home-1/Section8'
 // import Section9 from '@component/home-1/Section9'
 import AppLayout from '@component/layout/AppLayout'
+import React from 'react'
+import ProductsPromotion from '@component/home-1/ProductsPromotion'
+import AllProducts from '@component/home-1/AllProducts'
+import ProductsSale from '@component/home-1/ProductsSale'
 
 const IndexPage = () => {
+
   return (
     <AppLayout>
       <Promotions />
       {/*<Section2 />*/}
       <Categories />
+      <ProductsPromotion />
+      <ProductsSale />
+      <AllProducts />
       {/*<Section4 />*/}
       {/*<Section5 />*/}
       {/*<Section13 />*/}

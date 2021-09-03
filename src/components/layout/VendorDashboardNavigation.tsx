@@ -2,7 +2,7 @@ import FlexBox from '@component/FlexBox'
 import Assignment from '@material-ui/icons/Assignment'
 import Dashboard from '@material-ui/icons/Dashboard'
 import NoteAdd from '@material-ui/icons/NoteAdd'
-import Settings from '@material-ui/icons/Settings'
+// import Settings from '@material-ui/icons/Settings'
 import ShoppingCart from '@material-ui/icons/ShoppingCart'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -39,31 +39,31 @@ const VendorDashboardNavigation = () => {
 const linkList = [
   {
     href: '/vendor/dashboard',
-    title: 'Dashboard',
+    title: 'Escritorio',
     icon: Dashboard,
   },
   {
     href: '/vendor/products',
-    title: 'Products',
+    title: 'Productos',
     icon: Assignment,
     count: 300,
   },
   {
     href: '/vendor/add-product',
-    title: 'Add New Product',
+    title: 'Nuevo producto',
     icon: NoteAdd,
   },
   {
     href: '/vendor/orders',
-    title: 'Orders',
+    title: 'Ordernes',
     icon: ShoppingCart,
     count: 40,
   },
-  {
-    href: '/vendor/account-settings',
-    title: 'Account Settings',
-    icon: Settings,
-  },
+  // {
+  //   href: '/vendor/account-settings',
+  //   title: 'Account Settings',
+  //   icon: Settings,
+  // },
 ]
 
 export default VendorDashboardNavigation

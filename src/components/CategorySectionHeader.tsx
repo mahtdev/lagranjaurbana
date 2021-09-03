@@ -32,7 +32,7 @@ const CategorySectionHeader: React.FC<CategorySectionHeaderProps> = ({
         <Link href={seeMoreLink}>
           <a>
             <FlexBox alignItems="center" ml={1} color="grey.600">
-              View all
+              Ver todo
               {/* <Box mr={1}>View all</Box> */}
               <ArrowRight fontSize="small" color="inherit" />
               {/* <Icon size="12px" defaultcolor="currentColor">

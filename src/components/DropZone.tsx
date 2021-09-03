@@ -39,7 +39,7 @@ const DropZone: React.FC<DropZoneProps> = ({ onChange }) => {
     >
       <input {...getInputProps()} />
       <H5 mb={2} color="grey.600">
-        Drag & drop product image here
+        Pon tu imagen aqui
       </H5>
 
       <Divider sx={{ width: '200px', mx: 'auto' }} />
@@ -52,11 +52,11 @@ const DropZone: React.FC<DropZoneProps> = ({ onChange }) => {
         mt={-1.25}
         mb={2}
       >
-        on
+        o
       </Typography>
 
       <Button
-        color="primary"
+        color="inherit"
         type="button"
         sx={{
           bgcolor: 'primary.light',
@@ -64,10 +64,10 @@ const DropZone: React.FC<DropZoneProps> = ({ onChange }) => {
           mb: '22px',
         }}
       >
-        Select files
+        Selecciona tu archivo
       </Button>
 
-      <Small color="grey.600">Upload 280*280 image</Small>
+      <Small color="grey.600">Subir imagenes de 280*280 </Small>
     </Box>
   )
 }

@@ -16,7 +16,8 @@ import Link from 'next/link'
 import React, { useEffect } from 'react'
 
 const TopbarWrapper = styled('div')(({ theme }) => ({
-  background: theme.palette.secondary.main,
+  // background: theme.palette.secondary.main,
+  background: 'white',
   color: theme.palette.secondary.contrastText,
   height: layoutConstant.topbarHeight,
   fontSize: 12,
@@ -103,7 +104,7 @@ const Topbar = () => {
               <Image
                 display='block'
                 height='28px'
-                src='/assets/images/logo.svg'
+                src='/assets/images/logos/lagranja.svg'
                 alt='logo'
               />
             </Link>
