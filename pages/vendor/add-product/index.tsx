@@ -189,8 +189,8 @@ const OrderDetails = () => {
                 <Grid item sm={4} xs={12}>
                   <TextField
                     name='stock'
-                    label='Cantidad'
-                    placeholder='Cantidad'
+                    label='Cantidad minima'
+                    placeholder='Cantidad minima'
                     fullWidth
                     onBlur={handleBlur}
                     onChange={handleChange}
