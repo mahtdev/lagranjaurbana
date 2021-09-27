@@ -102,7 +102,10 @@ const OrderDetails = () => {
                     fullWidth
                     select
                     onBlur={handleBlur}
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      handleChange(e)
+                      setSubCategorySelected(e.target.value)
+                    }}
                     value={values.subcategory || ''}
                     error={!!touched.subcategory && !!errors.subcategory}
                     helperText={touched.subcategory && errors.subcategory}
@@ -143,6 +146,7 @@ const OrderDetails = () => {
                     name='stock'
                     label='Cantidad'
                     placeholder='Cantidad'
+                    type='number'
                     fullWidth
                     onBlur={handleBlur}
                     onChange={handleChange}
@@ -188,29 +192,30 @@ const OrderDetails = () => {
               <Grid container spacing={3}>
                 <Grid item sm={4} xs={12}>
                   <TextField
-                    name='stock'
+                    name='stock_sale'
                     label='Cantidad minima'
                     placeholder='Cantidad minima'
+                    type='number'
                     fullWidth
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    value={values.stock || ''}
-                    error={!!touched.stock && !!errors.stock}
-                    helperText={touched.stock && errors.stock}
+                    value={values.stock_sale || ''}
+                    error={!!touched.stock_sale && !!errors.stock_sale}
+                    helperText={touched.stock_sale && errors.stock_sale}
                   />
                 </Grid>
                 <Grid item sm={4} xs={12}>
                   <TextField
-                    name='unit'
+                    name='unit_sale'
                     label='Seleccionar Unidad'
                     placeholder='Unidad'
                     fullWidth
                     select
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    value={values.unit || ''}
-                    error={!!touched.unit && !!errors.unit}
-                    helperText={touched.unit && errors.unit}
+                    value={values.unit_sale || ''}
+                    error={!!touched.unit_sale && !!errors.unit_sale}
+                    helperText={touched.unit_sale && errors.unit_sale}
                   >
                     {units.map(value => <MenuItem value={value.id}>{value.name}</MenuItem>)}
                   </TextField>
@@ -256,7 +261,7 @@ const OrderDetails = () => {
                     fullWidth
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    value={values.code || ''}
+                    value={categorySelected.toString().padStart(3,"0") + subCategorySelected.toString().padStart(3,"0")}
                     error={!!touched.code && !!errors.code}
                     helperText={touched.code && errors.code}
                   />
@@ -291,17 +296,20 @@ const initialValues = {
   subcategory: '',
   unit: '',
   code: '',
+  stock_sale: '',
+  unit_sale: '',
 }
 
 const checkoutSchema = yup.object().shape({
   name: yup.string().required('required'),
   category: yup.string().required('required'),
-  description: yup.string().required('required'),
+  subcategory: yup.string().required('required'),
+  unit: yup.string().required('required'),
   stock: yup.number().required('required'),
   price: yup.number().required('required'),
   sale_price: yup.number().required('required'),
-  tags: yup.string().required('required'),
-  unit: yup.string().required('required'),
+  stock_price: yup.number().required('required'),
+  unit_sale: yup.string().required('required'),
 })
 
 export default OrderDetails

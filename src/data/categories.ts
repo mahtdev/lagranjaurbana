@@ -19,6 +19,10 @@ const carnicos = [
     id: 5,
     name: 'Otros embutidos',
   },
+  {
+    id: 6,
+    name: 'Accesorios para tu carne asada',
+  },
 ]
 const lacteos = [
   {
@@ -49,7 +53,7 @@ const lacteos = [
 const frutas = [
   {
     id: 1,
-    name: 'Tropicales',
+    name: 'Tropical',
   },
   {
     id: 2,
@@ -58,10 +62,6 @@ const frutas = [
   {
     id: 3,
     name: 'Cítricas',
-  },
-  {
-    id: 4,
-    name: 'Secas',
   },
 ]
 const verduras = [
@@ -103,6 +103,10 @@ const semillas = [
     id: 4,
     name: 'Especias',
   },
+  {
+    id: 4,
+    name: 'Frutos secos',
+  },
 ]
 const abarrotes = [
   {
@@ -119,25 +123,29 @@ const abarrotes = [
   },
   {
     id: 4,
-    name: 'Condimentos y aderezos',
+    name: 'Complementos, aderezos y salsas',
   },
   {
     id: 5,
-    name: 'Básicos del hogar',
+    name: 'Dulces y botanas',
   },
   {
     id: 6,
-    name: 'Otros y desinfección del hogar',
+    name: 'Básicos y desinfección del hogar',
   },
 ]
-const snacks = [
+const mascotas = [
   {
     id: 1,
-    name: 'Dulces',
+    name: 'Alimento para perro',
   },
   {
     id: 2,
-    name: 'Salados',
+    name: 'Alimento para gato',
+  },
+  {
+    id: 3,
+    name: 'Accesorios',
   },
 ]
 
@@ -164,7 +172,7 @@ const categories = [
   },
   {
     id: 5,
-    name: 'Semillas, especias y chiles secos',
+    name: 'Semillas, especias, frutos y chiles secos',
     subcategory: semillas,
   },
   {
@@ -174,8 +182,8 @@ const categories = [
   },
   {
     id: 7,
-    name: 'Snacks',
-    subcategory: snacks,
+    name: 'Mascotas',
+    subcategory: mascotas,
   },
 ]
 

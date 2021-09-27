@@ -4,11 +4,11 @@ const units = [
     name: 'kilos'
   },
 {
-    id: 1,
+    id: 2,
     name: 'Gramos'
   },
 {
-    id: 1,
+    id: 3,
     name: 'Pieza'
   },
 ]
