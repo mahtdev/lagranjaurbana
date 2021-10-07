@@ -1,5 +1,5 @@
 {
-  "name": "la granja urbana",
+  "name": "la_granja_urbana",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -31,6 +31,7 @@
     "chart.js": "^3.3.2",
     "clsx": "^1.1.1",
     "date-fns": "^2.22.1",
+    "firebase": "^9.1.0",
     "formik": "^2.2.6",
     "next": "^10.2.3",
     "nprogress": "^0.2.0",

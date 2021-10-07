@@ -3,7 +3,7 @@ import Image from '@component/BazarImage'
 import CategoryMenu from '@component/categories/CategoryMenu'
 import FlexBox from '@component/FlexBox'
 import Category from '@component/icons/Category'
-import ShoppingBagOutlined from '@component/icons/ShoppingBagOutlined'
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import MiniCart from '@component/mini-cart/MiniCart'
 import Login from '@component/sessions/Login'
 import { useAppContext } from '@context/app/AppContext'
@@ -70,7 +70,7 @@ const Header: React.FC<HeaderProps> = ({ isFixed, className }) => {
         p={1.25}
         onClick={toggleSidenav}
       >
-        <ShoppingBagOutlined />
+        <ShoppingCartIcon />
       </Box>
     </Badge>
   )
@@ -93,7 +93,7 @@ const Header: React.FC<HeaderProps> = ({ isFixed, className }) => {
         >
           <Link href="/">
             <a>
-              <Image height={'70px'} mb={0.5} src="/assets/images/logos/lagranja.svg" alt="logo" />
+              <Image height={'70px'} mb={0.5} src="/assets/images/logos/logo.svg" alt="logo" />
             </a>
           </Link>
 

@@ -112,7 +112,7 @@ const Topbar = () => {
 
           <FlexBox alignItems='center'>
             <CallOutlined fontSize='small' />
-            <Span className='title'>55 1954 9706</Span>
+            <Span className='title'>55 3951 5969</Span>
           </FlexBox>
           <FlexBox alignItems='center' ml={2.5}>
             <MailOutline fontSize='small' />
