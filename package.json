@@ -1,6 +1,6 @@
 {
   "name": "la_granja_urbana",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -28,6 +28,7 @@
     "@material-ui/lab": "^5.0.0-alpha.38",
     "@material-ui/styles": "^5.0.0-alpha.35",
     "@material-ui/system": "^5.0.0-alpha.38",
+    "@sendgrid/mail": "^7.5.0",
     "chart.js": "^3.3.2",
     "clsx": "^1.1.1",
     "date-fns": "^2.22.1",

@@ -18,9 +18,22 @@ const Ayuda = () => {
   }
 
   const handleFormSubmit = async (values: any) => {
-    console.log(values)
-    console.log('checkbox: ' + state)
-    console.log('radio: ' + value)
+    Object.defineProperty(values, 'contact', {
+      value: state,
+      writable: true,
+      enumerable: true,
+      configurable: true,
+    })
+    Object.defineProperty(values, 'preference', {
+      value: value,
+      writable: true,
+      enumerable: true,
+      configurable: true,
+    })
+    fetch('api/email-help', {
+      method: 'post',
+      body: JSON.stringify(values),
+    })
   }
 
   const handleChangeCheckBox = (event: any) => {
