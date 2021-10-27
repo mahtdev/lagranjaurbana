@@ -304,4 +304,4 @@ fabric.properties
 # End of https://www.toptal.com/developers/gitignore/api/webstorm,react,node,yarn,appbuilder,firebase
 sendgrid.env
 /local.env
-!/.env.local
+/.env.local
