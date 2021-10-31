@@ -9,10 +9,6 @@ const navbarNavigations = [
         url: '/nosotros/conocenos',
       },
       {
-        title: 'Misión',
-        url: '/nosotros/mision',
-      },
-      {
         title: 'Aviso de privacidad',
         url: '/nosotros/aviso',
       },

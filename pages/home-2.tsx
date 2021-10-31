@@ -1,5 +1,5 @@
 import GroceryFooter from '@component/home-2/GroceryFooter'
-import GrocerySection1 from '@component/home-2/GrocerySection1'
+import Slides from '@component/home-2/Slides'
 import GrocerySection2 from '@component/home-2/GrocerySection2'
 import GrocerySection3 from '@component/home-2/GrocerySection3'
 import GrocerySection4 from '@component/home-2/GrocerySection4'
@@ -103,7 +103,7 @@ const Home2 = () => {
           })}
         >
           <Box mb={6} mt={3}>
-            <GrocerySection1 />
+            <Slides />
           </Box>
 
           <Box mb={6} overflow="hidden">

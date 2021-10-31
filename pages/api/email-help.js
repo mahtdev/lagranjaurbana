@@ -22,7 +22,7 @@ export default function handler(req, res) {
   }
   console.log('Enviando mensaje con template de ayuda')
   console.log(data)
-  mail.send(data).then(() => {
-  }, console.error)
-  res.status(200).json({ status: 'Ok' })
+  // mail.send(data).then(() => {
+  // }, console.error)
+  res.status(200).json({ status: 'ok' })
 }

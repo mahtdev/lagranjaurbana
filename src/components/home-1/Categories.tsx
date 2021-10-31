@@ -30,7 +30,6 @@ const Categories = () => {
               <BazarCard sx={{ p: '1rem' }} elevation={0}>
                 <ProductCard6
                   title={item.title}
-                  subtitle={item.subtitle}
                   imgUrl={item.imgUrl}
                 />
               </BazarCard>
@@ -47,55 +46,43 @@ const categoryList = [
     title: 'Cárnicos',
     subtitle: 'Todo lo que buscabas',
     categoryUrl: '/products/search/carnicos',
-    imgUrl: '/assets/images/grocery/carnicos.png',
+    imgUrl: '/assets/images/products/categories/carne.png',
   },
   {
-    title: 'Pollo',
-    subtitle: 'El más delicioso y fresco que puedes encontrar',
-    categoryUrl: '/productos/search/pollo',
-    imgUrl: '/assets/images/grocery/pollo.png',
-  },
-  {
-    title: 'Lacteos y huevos',
+    title: 'Lácteos y huevos',
     subtitle: 'Para una excelente nutricion de la familia',
     categoryUrl: '/productos/search/lacteos',
-    imgUrl: '/assets/images/grocery/lacteos.png',
+    imgUrl: '/assets/images/products/categories/lacteoss.png',
   },
   {
     title: 'Frutas',
     subtitle: 'Las más frescas, jugosas y deliciosas, solo lo mejor para ti',
     categoryUrl: '/productos/search/frutas',
-    imgUrl: '/assets/images/grocery/frutas.png',
+    imgUrl: '/assets/images/products/categories/Frutas.png',
   },
   {
     title: 'Verduras',
     subtitle: 'Quien dijo que la verduras no son deliciosas',
     categoryUrl: '/productos/search/verduras',
-    imgUrl: '/assets/images/grocery/verduras.png',
+    imgUrl: '/assets/images/products/categories/Verduras.png',
   },
   {
     title: 'Semillas, especias y chiles secos',
     subtitle: 'Todo lo necesario para hacer la mejor salsa del mundo',
     categoryUrl: '/productos/search/semillas',
-    imgUrl: '/assets/images/grocery/semillas.png',
+    imgUrl: '/assets/images/products/categories/chiles.png',
   },
   {
     title: 'Abarrotes',
     subtitle: 'Si te hace falta algo en el hogar, nosotros lo tenemos',
     categoryUrl: '/productos/search/abarrotes',
-    imgUrl: '/assets/images/grocery/abarrotes.png',
+    imgUrl: '/assets/images/products/categories/Abarrotes.png',
   },
   {
-    title: 'Snack',
-    subtitle: 'Los pequeños detalles que hacen que cada día cuenten',
-    categoryUrl: '/productos/search/snacks',
-    imgUrl: '/assets/images/grocery/botanas.png',
-  },
-  {
-    title: 'Recetario',
-    subtitle: 'Si no sabes que puedes preparar, seguramente aqui algo te encantara',
-    categoryUrl: '/recetas',
-    imgUrl: '/assets/images/grocery/recetas.png',
+    title: 'Mascotas',
+    subtitle: 'Si te hace falta algo en el hogar, nosotros lo tenemos',
+    categoryUrl: '/productos/search/abarrotes',
+    imgUrl: '/assets/images/products/categories/mascotas.png',
   }
 ]
 

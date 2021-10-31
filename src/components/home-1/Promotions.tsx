@@ -2,7 +2,7 @@ import Navbar from '@component/navbar/Navbar'
 import { Box, Container } from '@material-ui/core'
 import React, { Fragment } from 'react'
 import GrocerySection2 from '@component/home-2/GrocerySection2'
-import GrocerySection1 from '@component/home-2/GrocerySection1'
+import Slides from '@component/home-2/Slides'
 
 const Promotions = () => {
   return (
@@ -26,9 +26,8 @@ const Promotions = () => {
           {/* <CarouselCard1 /> */}
           {/*</Carousel>*/}
           <Box mb={6} mt={3}>
-            <GrocerySection1 />
+            <Slides />
           </Box>
-
           <Box overflow="hidden">
             <GrocerySection2 />
           </Box>

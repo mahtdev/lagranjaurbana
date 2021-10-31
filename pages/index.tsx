@@ -16,6 +16,8 @@ import React from 'react'
 import ProductsPromotion from '@component/home-1/ProductsPromotion'
 import AllProducts from '@component/home-1/AllProducts'
 import ProductsSale from '@component/home-1/ProductsSale'
+import { Box, Container } from '@material-ui/core'
+import Metodos from '@component/home-2/Metodos'
 
 const IndexPage = () => {
 
@@ -24,6 +26,13 @@ const IndexPage = () => {
       <Promotions />
       {/*<Section2 />*/}
       <Categories />
+      <Box bgcolor='gray.100'>
+        <Container sx={{ py: '2rem' }}>
+          <Box mb={6} mt={3}>
+            <Metodos />
+          </Box>
+        </Container>
+      </Box>
       <ProductsPromotion />
       <ProductsSale />
       <AllProducts />

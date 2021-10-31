@@ -1,20 +1,41 @@
 import React from 'react'
 import NavbarLayout from '@component/layout/NavbarLayout'
 import DashboardPageHeader from '@component/layout/DashboardPageHeader'
-import { Button, Checkbox, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField } from '@material-ui/core'
+import {
+  Button,
+  Checkbox,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  FormControlLabel,
+  FormLabel,
+  Grid,
+  Radio,
+  RadioGroup,
+  TextField,
+} from '@material-ui/core'
 import { Formik } from 'formik'
 import Card from '@material-ui/core/Card'
 import SaveIcon from '@material-ui/icons/Save'
 import * as yup from 'yup'
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline'
+import Link from 'next/link'
 
 const Ayuda = () => {
 
   const [state, setState] = React.useState(false)
   const [value, setValue] = React.useState('phone')
+  const [modal, setModal] = React.useState(false)
 
   const handleChangeRadioButton = (event: any) => {
     setValue(event.target.value)
+  }
+
+  const handleClose = () => {
+    //TODO mandar la pagina de home
+    console.log('Mandar a home')
   }
 
   const handleFormSubmit = async (values: any) => {
@@ -33,6 +54,14 @@ const Ayuda = () => {
     fetch('api/email-help', {
       method: 'post',
       body: JSON.stringify(values),
+    }).then(res => {
+      if (!res.ok) {
+        console.error('Problem1 to send email: ' + res)
+      } else {
+        setModal(true)
+      }
+    }).catch(err => {
+      console.error('Problem2 to send email: ' + err)
     })
   }
 
@@ -171,6 +200,30 @@ const Ayuda = () => {
           </form>
         )}
       </Formik>
+      <Dialog
+        open={modal}
+        onClose={handleClose}
+        aria-labelledby='alert-dialog-title'
+        aria-describedby='alert-dialog-description'
+      >
+        <DialogTitle id='alert-dialog-title'>
+          {'Gracias por compartir tu informacion'}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id='alert-dialog-description'>
+            Nuestro equipo esta trabajando para resolver tus dudas lo antes posible,
+            solo te pedimos un poco de paciencia y nuestro equipo estara en contacto
+            contigo lo más pronto posible
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Link href='/'>
+            <a>
+              <Button>Continuar</Button>
+            </a>
+          </Link>
+        </DialogActions>
+      </Dialog>
     </NavbarLayout>
 
   )

@@ -125,7 +125,7 @@ const Topbar = () => {
             Preguntas
           </NavLink>
           <NavLink className='link' href='/help'>
-            ¿Necestias ayuda?
+            ¿Necesitas ayuda?
           </NavLink>
 
           {/*<BazarMenu*/}
