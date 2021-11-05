@@ -17,7 +17,7 @@ const GrocerySection2 = () => {
   return (
     <Grid container spacing={3}>
       {serviceList.map((item, ind) => (
-        <Grid item md={4} sm={4} xs={12} key={ind}>
+        <Grid item md={4} sm={6} xs={12} key={ind}>
           <FlexBox
             alignItems='center'
             p={3}
@@ -25,6 +25,7 @@ const GrocerySection2 = () => {
             borderColor='grey.400'
             borderRadius='8px'
             boxShadow='2'
+            height='200px'
           >
             <FlexBox alignItems='center' color='grey.600' fontSize='50px' mr={2} minWidth='50px' minHeight='50px'>
               <Img alt='complex' src={item.imgUri} />
@@ -37,7 +38,7 @@ const GrocerySection2 = () => {
               {/*<Span color='grey.800'>{item.subtitle2}</Span><br />*/}
               {/*<Span color='grey.800'>{item.subtitle3}</Span>*/}
               <List>
-                <ListItem>
+                <ListItem disablePadding>
                   <ListItemIcon>
                     <Check fontSize='small' />
                   </ListItemIcon>
@@ -45,7 +46,7 @@ const GrocerySection2 = () => {
                     primary={item.subtitle1}
                   />
                 </ListItem>
-                <ListItem>
+                <ListItem disablePadding>
                   <ListItemIcon>
                     <Check fontSize='small' />
                   </ListItemIcon>
@@ -53,7 +54,7 @@ const GrocerySection2 = () => {
                     primary={item.subtitle2}
                   />
                 </ListItem>
-                <ListItem>
+                <ListItem disablePadding>
                   <ListItemIcon>
                     <Check fontSize='small' />
                   </ListItemIcon>
@@ -66,7 +67,7 @@ const GrocerySection2 = () => {
           </FlexBox>
         </Grid>
       ))}
-      <Grid item md={4} sm={4} xs={12}>
+      <Grid item md={4} sm={12} xs={12}>
         <FlexBox
           alignItems='center'
           p={3}
@@ -74,6 +75,7 @@ const GrocerySection2 = () => {
           borderColor='grey.400'
           borderRadius='8px'
           boxShadow='2'
+          height='200px'
         >
           <FlexBox alignItems='center' color='grey.600' fontSize='50px' mr={2} minWidth='50px' minHeight='50px'>
             <Img alt='complex' src='/assets/images/banners/tarjetas.png' />
@@ -82,32 +84,51 @@ const GrocerySection2 = () => {
             <H4 color='grey.900' fontSize='1.25rem' fontWeight='700'>
               Métodos de pago
             </H4>
-            {/*<Span color='grey.800'>{item.subtitle1}</Span><br />*/}
-            {/*<Span color='grey.800'>{item.subtitle2}</Span><br />*/}
-            {/*<Span color='grey.800'>{item.subtitle3}</Span>*/}
             <List>
-              <ListItem>
+              <ListItem disablePadding>
                 <ListItemIcon>
                   <Check fontSize='small' />
                 </ListItemIcon>
                 <ListItemText
                   primary={
                     <Span>
-                      <span color='grey.900' style={{ fontWeight: 600 }}>Pago página web: </span>
-                      <span color='grey.800'>Aceptamos tarjetas de crédito, debito, AMEX, Vales y SPEI</span>
+                      <span color='grey.800'>VISA</span>
                     </Span>
                   }
                 />
               </ListItem>
-              <ListItem>
+              <ListItem disablePadding>
                 <ListItemIcon>
                   <Check fontSize='small' />
                 </ListItemIcon>
                 <ListItemText
                   primary={
                     <Span>
-                      <span color='grey.900' style={{ fontWeight: 600 }}>Pago contra-entrega: </span>
-                      <span color='grey.800'>Aceptamos todas las anteriores y efectivo</span>
+                      <span color='grey.800'>MasterCard</span>
+                    </Span>
+                  }
+                />
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemIcon>
+                  <Check fontSize='small' />
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <Span>
+                      <span color='grey.800'>Vales</span>
+                    </Span>
+                  }
+                />
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemIcon>
+                  <Check fontSize='small' />
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <Span>
+                      <span color='grey.800'>Pago en efectivo contra entrega</span>
                     </Span>
                   }
                 />

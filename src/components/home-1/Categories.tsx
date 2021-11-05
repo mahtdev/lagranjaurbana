@@ -81,7 +81,7 @@ const categoryList = [
   {
     title: 'Mascotas',
     subtitle: 'Si te hace falta algo en el hogar, nosotros lo tenemos',
-    categoryUrl: '/productos/search/abarrotes',
+    categoryUrl: '/productos/search/mascotas',
     imgUrl: '/assets/images/products/categories/mascotas.png',
   }
 ]
