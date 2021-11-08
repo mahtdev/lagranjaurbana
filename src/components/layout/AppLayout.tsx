@@ -5,6 +5,7 @@ import Sticky from '@component/sticky/Sticky'
 import Topbar from '@component/topbar/Topbar'
 import Head from 'next/head'
 import React, { Fragment, useCallback, useState } from 'react'
+import Footer from '@component/footer/Footer'
 
 type AppLayoutProps = {
   title?: string
@@ -40,7 +41,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({
       {!navbar ? <div className='section-after-sticky'>{children}</div> : children}
 
       <MobileNavigationBar />
-      {/*<Footer />*/}
+      <Footer />
     </Fragment>
   )
 }
